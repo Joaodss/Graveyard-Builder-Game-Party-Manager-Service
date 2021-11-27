@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ironhack</groupId>
-    <artifactId>party-service</artifactId>
+    <artifactId>party-manager-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>party-service</name>
-    <description>party-service</description>
+    <name>party-manager-service</name>
+    <description>party-manager-service</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2021.0.0-RC1</spring-cloud.version>
