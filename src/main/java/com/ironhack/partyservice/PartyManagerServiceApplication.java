@@ -8,10 +8,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-public class PartyServiceApplication {
+public class PartyManagerServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PartyServiceApplication.class, args);
+        SpringApplication.run(PartyManagerServiceApplication.class, args);
     }
 
 }
