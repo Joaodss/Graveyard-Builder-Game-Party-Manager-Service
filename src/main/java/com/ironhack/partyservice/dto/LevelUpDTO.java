@@ -2,6 +2,9 @@ package com.ironhack.partyservice.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -10,6 +13,8 @@ import lombok.*;
 @ToString
 public class LevelUpDTO {
 
+    @NotNull
+    @Positive
     private Long id;
     private Integer healthPoints;
     private Integer energyPoints;
