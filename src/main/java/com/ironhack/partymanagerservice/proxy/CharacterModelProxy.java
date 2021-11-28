@@ -1,16 +1,13 @@
-package com.ironhack.partyservice.proxy;
+package com.ironhack.partymanagerservice.proxy;
 
-import com.ironhack.partyservice.dto.CharacterDTO;
-import com.ironhack.partyservice.dto.LevelUpDTO;
-import com.ironhack.partyservice.dto.NewCharacterDTO;
+import com.ironhack.partymanagerservice.dto.CharacterDTO;
+import com.ironhack.partymanagerservice.dto.LevelUpDTO;
+import com.ironhack.partymanagerservice.dto.NewCharacterDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
-import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.OK;
 
 @FeignClient(value = "character-model-service", path = "/api/v1/characters")
 public interface CharacterModelProxy {
