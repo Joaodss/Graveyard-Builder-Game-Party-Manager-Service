@@ -1,10 +1,10 @@
-package com.ironhack.partyservice.service;
+package com.ironhack.partymanagerservice.service;
 
-import com.ironhack.partyservice.dto.CharacterDTO;
-import com.ironhack.partyservice.dto.LevelUpDTO;
-import com.ironhack.partyservice.dto.UserDTO;
-import com.ironhack.partyservice.proxy.CharacterModelProxy;
-import com.ironhack.partyservice.proxy.UserModelProxy;
+import com.ironhack.partymanagerservice.dto.CharacterDTO;
+import com.ironhack.partymanagerservice.dto.LevelUpDTO;
+import com.ironhack.partymanagerservice.dto.UserDTO;
+import com.ironhack.partymanagerservice.proxy.CharacterModelProxy;
+import com.ironhack.partymanagerservice.proxy.UserModelProxy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class PartyManagerServiceImpl implements PartyManagerService {
         return characterModelProxy.getCharactersByUserUsernameActive(username);
     }
 
-    public List<CharacterDTO> getGraveYard(String username) {
+    public List<CharacterDTO> getGraveyard(String username) {
         log.info("Getting graveyard of user: {}", username);
         return characterModelProxy.getCharactersByUserUsernameGraveyard(username);
     }
@@ -66,7 +66,7 @@ public class PartyManagerServiceImpl implements PartyManagerService {
 
 
     @Override
-    public CharacterDTO reviveCharacter(String username, Long id, Integer healAmount) {
+    public CharacterDTO reviveCharacter(String username, Long id) {
         log.info("Reviving character with id: {}", id);
         var storedCharacter = characterModelProxy.getCharacterById(id);
         if (storedCharacter.getUserUsername().equals(username)) {

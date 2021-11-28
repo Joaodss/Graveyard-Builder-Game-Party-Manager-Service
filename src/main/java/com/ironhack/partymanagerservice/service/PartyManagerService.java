@@ -1,7 +1,7 @@
-package com.ironhack.partyservice.service;
+package com.ironhack.partymanagerservice.service;
 
-import com.ironhack.partyservice.dto.CharacterDTO;
-import com.ironhack.partyservice.dto.LevelUpDTO;
+import com.ironhack.partymanagerservice.dto.CharacterDTO;
+import com.ironhack.partymanagerservice.dto.LevelUpDTO;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public interface PartyManagerService {
 
     List<CharacterDTO> getParty(String username);
 
-    List<CharacterDTO> getGraveYard(String username);
+    List<CharacterDTO> getGraveyard(String username);
 
     CharacterDTO getCharacterById(String username, Long id);
 
@@ -17,7 +17,7 @@ public interface PartyManagerService {
 
     CharacterDTO healCharacter(String username, Long id, Integer healAmount);
 
-    CharacterDTO reviveCharacter(String username, Long id, Integer healAmount);
+    CharacterDTO reviveCharacter(String username, Long id);
 
     void removeCharacter(String username, Long id);
 

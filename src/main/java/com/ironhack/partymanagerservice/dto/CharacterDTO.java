@@ -1,4 +1,4 @@
-package com.ironhack.partyservice.dto;
+package com.ironhack.partymanagerservice.dto;
 
 import lombok.*;
 

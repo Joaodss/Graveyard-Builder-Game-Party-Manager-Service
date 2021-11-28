@@ -1,6 +1,6 @@
-package com.ironhack.partyservice.proxy;
+package com.ironhack.partymanagerservice.proxy;
 
-import com.ironhack.partyservice.dto.UserDTO;
+import com.ironhack.partymanagerservice.dto.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;

@@ -1,4 +1,4 @@
-package com.ironhack.partyservice;
+package com.ironhack.partymanagerservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
