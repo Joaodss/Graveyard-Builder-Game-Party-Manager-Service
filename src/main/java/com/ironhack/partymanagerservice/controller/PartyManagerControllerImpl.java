@@ -2,6 +2,7 @@ package com.ironhack.partymanagerservice.controller;
 
 import com.ironhack.partymanagerservice.dto.CharacterDTO;
 import com.ironhack.partymanagerservice.dto.LevelUpDTO;
+import com.ironhack.partymanagerservice.dto.NewCharacterDTO;
 import com.ironhack.partymanagerservice.service.PartyManagerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,8 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.validation.Valid;
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.FORBIDDEN;
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/api/v1/party-manager")
@@ -40,6 +40,18 @@ public class PartyManagerControllerImpl implements PartyManagerController {
                                          @PathVariable Long id) {
         try {
             return partyManagerService.getCharacterById(username, id);
+        } catch (IllegalArgumentException e1) {
+            throw new ResponseStatusException(FORBIDDEN, e1.getMessage());
+        }
+    }
+
+
+    @PostMapping("/create")
+    @ResponseStatus(CREATED)
+    public CharacterDTO createCharacter(@RequestHeader(value = "username") String username,
+                                        @RequestBody @Valid NewCharacterDTO newCharacterDTO) {
+        try {
+            return partyManagerService.createCharacter(username, newCharacterDTO);
         } catch (IllegalArgumentException e1) {
             throw new ResponseStatusException(FORBIDDEN, e1.getMessage());
         }

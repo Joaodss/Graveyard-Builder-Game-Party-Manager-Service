@@ -2,6 +2,8 @@ package com.ironhack.partymanagerservice.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -10,8 +12,11 @@ import lombok.*;
 @ToString
 public class NewCharacterDTO {
 
+    @NotBlank
     private String userUsername;
+    @NotBlank
     private String type;
+    @NotBlank
     private String name;
     private String pictureURL;
 

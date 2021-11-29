@@ -2,6 +2,7 @@ package com.ironhack.partymanagerservice.service;
 
 import com.ironhack.partymanagerservice.dto.CharacterDTO;
 import com.ironhack.partymanagerservice.dto.LevelUpDTO;
+import com.ironhack.partymanagerservice.dto.NewCharacterDTO;
 import com.ironhack.partymanagerservice.dto.UserDTO;
 import com.ironhack.partymanagerservice.proxy.CharacterModelProxy;
 import com.ironhack.partymanagerservice.proxy.UserModelProxy;
@@ -36,11 +37,19 @@ public class PartyManagerServiceImpl implements PartyManagerService {
         throw new IllegalArgumentException("Dont have access to this character");
     }
 
+    public CharacterDTO createCharacter(String username, NewCharacterDTO newCharacterDTO) {
+        log.info("Creating character with name: {}", newCharacterDTO.getName());
+        if (username.equals(newCharacterDTO.getUserUsername())) {
+            return characterModelProxy.createCharacter(newCharacterDTO);
+        }
+        throw new IllegalArgumentException("Dont have access to create this character");
+    }
+
     public CharacterDTO levelUpCharacter(String username, LevelUpDTO levelUpDTO) {
         log.info("Leveling up character with id: {}", levelUpDTO.getId());
         var storedCharacter = characterModelProxy.getCharacterById(levelUpDTO.getId());
-        if (storedCharacter.getUserUsername().equals(username)){
-            var updatedCharacter =  characterModelProxy.levelUpCharacter(levelUpDTO);
+        if (storedCharacter.getUserUsername().equals(username)) {
+            var updatedCharacter = characterModelProxy.levelUpCharacter(levelUpDTO);
             updatePartyLevel(username);
             return updatedCharacter;
         }
