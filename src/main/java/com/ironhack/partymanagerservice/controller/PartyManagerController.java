@@ -2,6 +2,7 @@ package com.ironhack.partymanagerservice.controller;
 
 import com.ironhack.partymanagerservice.dto.CharacterDTO;
 import com.ironhack.partymanagerservice.dto.LevelUpDTO;
+import com.ironhack.partymanagerservice.dto.NewCharacterDTO;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public interface PartyManagerController {
     List<CharacterDTO> getGraveyard(String username);
 
     CharacterDTO getCharacterById(String username, Long id);
+
+    CharacterDTO createCharacter(String username, NewCharacterDTO newCharacterDTO);
 
     CharacterDTO levelUpCharacter(String username, LevelUpDTO levelUpDTO);
 
