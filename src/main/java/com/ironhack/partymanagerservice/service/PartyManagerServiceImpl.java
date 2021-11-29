@@ -73,8 +73,6 @@ public class PartyManagerServiceImpl implements PartyManagerService {
         throw new IllegalArgumentException("Dont have access to this character");
     }
 
-
-    @Override
     public CharacterDTO reviveCharacter(String username, Long id) {
         log.info("Reviving character with id: {}", id);
         var storedCharacter = characterModelProxy.getCharacterById(id);
@@ -91,7 +89,6 @@ public class PartyManagerServiceImpl implements PartyManagerService {
         throw new IllegalArgumentException("Dont have access to this character");
     }
 
-    @Override
     public void removeCharacter(String username, Long id) {
         log.info("Removing character with id: {}", id);
         var storedCharacter = characterModelProxy.getCharacterById(id);
