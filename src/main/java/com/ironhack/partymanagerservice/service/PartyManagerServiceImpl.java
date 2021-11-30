@@ -95,8 +95,7 @@ public class PartyManagerServiceImpl implements PartyManagerService {
         if (storedCharacter.getUserUsername().equals(username)) {
             characterModelProxy.deleteCharacterById(id);
             updatePartyLevel(username);
-        }
-        throw new IllegalArgumentException("Dont have access to this character");
+        } else throw new IllegalArgumentException("Dont have access to this character");
     }
 
 
