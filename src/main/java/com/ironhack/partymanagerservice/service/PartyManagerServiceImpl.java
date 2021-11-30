@@ -80,7 +80,7 @@ public class PartyManagerServiceImpl implements PartyManagerService {
             var reviveCharacterDTO = new CharacterDTO();
             reviveCharacterDTO.setId(id);
             reviveCharacterDTO.setUserUsername(username);
-            reviveCharacterDTO.setCurrentHealth(reviveCharacterDTO.getMaxHealth());
+            reviveCharacterDTO.setCurrentHealth(storedCharacter.getMaxHealth());
             reviveCharacterDTO.setIsAlive(true);
             var updatedCharacter = characterModelProxy.updateCharacter(reviveCharacterDTO);
             updatePartyLevel(username);
